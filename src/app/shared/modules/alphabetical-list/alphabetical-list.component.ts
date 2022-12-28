@@ -18,10 +18,12 @@ export class AlphabeticalListComponent<T> implements OnChanges {
     @Input()
     public labelHandler: (item: T) => string = (item) => (item as string);
 
+    public letters!: string[];
     public sectionMap!: Map<string, T[]>;
 
     public ngOnChanges(): void {
         this.initSectionMap(this.data);
+        this.initLetters();
     }
 
     private initSectionMap(data: T[]): void {
@@ -34,6 +36,10 @@ export class AlphabeticalListComponent<T> implements OnChanges {
             value.push(item);
             this.sectionMap.set(key, value);
         });
+    }
+
+    private initLetters(): void {
+        this.letters = [...this.sectionMap.keys()];
     }
 
     private extractFirstLetterFromLabel(item: T): string {
