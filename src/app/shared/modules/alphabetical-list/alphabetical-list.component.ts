@@ -37,8 +37,8 @@ export class AlphabeticalListComponent<T> implements OnChanges {
     }
 
     private extractFirstLetterFromLabel(item: T): string {
-        const name = this.labelHandler(item);
-        const firstLetter = name[0].toUpperCase();
+        const label = this.labelHandler(item);
+        const firstLetter = label[0].toUpperCase();
 
         return firstLetter;
     }
