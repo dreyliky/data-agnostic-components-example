@@ -1,0 +1,11 @@
+<ng-container *ngFor="let letter of sectionMap.keys()">
+    <div class="section-header">
+        {{ letter }}
+    </div>
+
+    <mat-selection-list>
+        <mat-list-option *ngFor="let sectionItem of sectionMap.get(letter)">
+            {{ labelHandler(sectionItem) }}
+        </mat-list-option>
+    </mat-selection-list>
+</ng-container>
